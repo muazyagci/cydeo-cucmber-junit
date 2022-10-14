@@ -1,0 +1,35 @@
+Feature: Wikipedia search functionality and verifications
+
+#WES-543
+
+
+
+
+
+  Scenario: Wikipedia Search Functionality Title Verification
+    Given User is on Wikipedia home page
+    When User types "Steve Jobs" in the wiki search box
+    Then User clicks wiki search button
+    When User sees "Steve Jobs" is in the wiki title
+
+
+  Scenario Outline:Wikipedia Search Functionality Header Verification
+    Given User is on Wikipedia home page
+    When User types "<searchValue>" in the wiki search box
+    Then User clicks wiki search button
+    When User sees "<expectedTitle>" is in the wiki title
+    When User sees "<expectedMainHeader>" in the main header
+@soccerplayers
+    Examples: Search values we are going to be using in this scenario is as below
+      | searchValue       | expectedTitle     | expectedMainHeader |
+      | Steve Jobs        | Steve Jobs        | Steve Jobs         |
+      | Cristiano Ronaldo | Cristiano Ronaldo | Cristiano Ronaldo  |
+      | Bob Marley        | Bob Marley        | Bob Marley         |
+      | Chuck Norris      | Chuck Norris      | Chuck Norris       |
+      | Antony Hopkins    | Antony Hopkins    | Antony Hopkins     |
+    @scientists
+    Examples:
+      | searchValue  | expectedTitle | expectedMainHeader |
+      | Marie Curie  |               | Marie Curie        |
+      | Lady Gaga    | Lady Gaga     | Lady Gaga          |
+      | Kate Winslet | Kate Winslet  | Kate Winslet       |
