@@ -24,6 +24,7 @@ public class Hooks {
     @Before(value = "@db",order = 0)//Before method coming from cucumber-java.Not from junit
     public void setupScenarioForDataBase(){
         System.out.println("===This will only apply to Scenarios with @db ");
+
     }
 
 
